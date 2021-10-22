@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchActivity">
+
+    <Button
+        android:id="@+id/tVSearch_Query1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# of times 1/1/2015 was searched"
+        app:layout_constraintBottom_toTopOf="@id/tVSearch_Query2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tVSearch_Query2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# of times Manhattan is used"
+        app:layout_constraintBottom_toTopOf="@id/tVSearch_Query3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tVSearch_Query1" />
+    <Button
+        android:id="@+id/tVSearch_Query3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# of time firstclass vehicles are used"
+        app:layout_constraintBottom_toTopOf="@id/tVSearch_Query4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tVSearch_Query2" />
+    <Button
+        android:id="@+id/tVSearch_Query4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# of rides 10:00Am - 11:59AM"
+        app:layout_constraintBottom_toTopOf="@id/tVSearch_Query5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tVSearch_Query3" />
+    <Button
+        android:id="@+id/tVSearch_Query5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# of active vehicles over 1000"
+        app:layout_constraintBottom_toTopOf="@id/tVSearch_Query6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tVSearch_Query4" />
+    <Button
+        android:id="@+id/tVSearch_Query6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# of times Park AVE is used"
+        app:layout_constraintBottom_toTopOf="@id/tVSearch_Result"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tVSearch_Query5" />
+
+    <TextView
+        android:id="@+id/tVSearch_Result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Result"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tVSearch_Query6" />
+</androidx.constraintlayout.widget.ConstraintLayout>

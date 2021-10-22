@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".ChooseFileActivity">
+
+
+    <TextView
+        android:id="@+id/tvChooseFile_ChooseFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Choose File"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnChooseFile_JanFeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UberJan-Feb-FOIL"
+        app:layout_constraintBottom_toTopOf="@id/btnChooseFile_Dial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvChooseFile_ChooseFile" />
+
+    <Button
+        android:id="@+id/btnChooseFile_Dial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other-Dial7-B0087"
+        app:layout_constraintBottom_toTopOf="@id/btnChooseFile_FirstClass"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnChooseFile_JanFeb" />
+
+    <Button
+        android:id="@+id/btnChooseFile_FirstClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other-Firstclass-B01578"
+        app:layout_constraintBottom_toTopOf="@id/btnChooseFile_Apr"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnChooseFile_Dial" />
+
+    <Button
+        android:id="@+id/btnChooseFile_Apr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uber-raw-data-apr14"
+        app:layout_constraintBottom_toTopOf="@id/btnChooseFile_Federal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnChooseFile_FirstClass" />
+
+    <Button
+        android:id="@+id/btnChooseFile_Federal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="other-Federal_02216"
+        app:layout_constraintBottom_toTopOf="@id/btnChooseFile_HighClass"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnChooseFile_Apr" />
+
+    <Button
+        android:id="@+id/btnChooseFile_HighClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="other-Highclass_B01717"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnChooseFile_Federal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

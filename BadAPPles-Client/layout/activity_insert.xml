@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertActivity">
+
+    <TextView
+        android:id="@+id/tV_InsertName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="File Name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eT_InsertColumn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/eT_InsertColumn2"
+        app:layout_constraintLeft_toRightOf="@id/tvInsert_Column1"
+        app:layout_constraintTop_toBottomOf="@id/tV_InsertName" />
+
+    <EditText
+        android:id="@+id/eT_InsertColumn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/eT_InsertColumn3"
+        app:layout_constraintLeft_toRightOf="@id/tvInsert_Column2"
+        app:layout_constraintTop_toBottomOf="@id/eT_InsertColumn1" />
+
+    <EditText
+        android:id="@+id/eT_InsertColumn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/eT_InsertColumn4"
+        app:layout_constraintLeft_toRightOf="@id/tvInsert_Column3"
+        app:layout_constraintTop_toBottomOf="@id/eT_InsertColumn2" />
+
+    <EditText
+        android:id="@+id/eT_InsertColumn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/eT_InsertColumn5"
+        app:layout_constraintLeft_toRightOf="@id/tvInsert_Column4"
+        app:layout_constraintTop_toBottomOf="@id/eT_InsertColumn3" />
+
+    <EditText
+        android:id="@+id/eT_InsertColumn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/eT_InsertColumn6"
+        app:layout_constraintLeft_toRightOf="@id/tvInsert_Column5"
+        app:layout_constraintTop_toBottomOf="@id/eT_InsertColumn4" />
+
+    <EditText
+        android:id="@+id/eT_InsertColumn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/eT_InsertColumn7"
+        app:layout_constraintLeft_toRightOf="@id/tvInsert_Column6"
+        app:layout_constraintTop_toBottomOf="@id/eT_InsertColumn5" />
+
+    <EditText
+        android:id="@+id/eT_InsertColumn7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/bt_Insert"
+        app:layout_constraintLeft_toRightOf="@id/tvInsert_Column7"
+        app:layout_constraintTop_toBottomOf="@id/eT_InsertColumn6" />
+
+    <TextView
+        android:id="@+id/tvInsert_Column1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Column 1:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/eT_InsertColumn1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eT_InsertColumn1" />
+
+    <TextView
+        android:id="@+id/tvInsert_Column2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Column 2:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/eT_InsertColumn2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eT_InsertColumn2" />
+
+    <TextView
+        android:id="@+id/tvInsert_Column3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Column 3:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/eT_InsertColumn3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eT_InsertColumn3" />
+
+    <TextView
+        android:id="@+id/tvInsert_Column4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Column 4:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/eT_InsertColumn4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eT_InsertColumn4" />
+
+    <TextView
+        android:id="@+id/tvInsert_Column5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Column 5:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/eT_InsertColumn5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eT_InsertColumn5" />
+
+    <TextView
+        android:id="@+id/tvInsert_Column6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Column 6:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/eT_InsertColumn6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eT_InsertColumn6" />
+
+    <TextView
+        android:id="@+id/tvInsert_Column7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Column 7:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/eT_InsertColumn7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eT_InsertColumn7" />
+
+    <Button
+        android:id="@+id/bt_Insert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eT_InsertColumn7" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
