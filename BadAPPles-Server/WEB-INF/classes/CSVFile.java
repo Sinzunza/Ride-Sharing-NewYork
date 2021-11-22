@@ -7,15 +7,18 @@ import java.util.List;
 import java.io.*;
 
 public class CSVFile {
+    
     InputStream inputStream;
 
-    public CSVFile(InputStream inputStream){
+    public CSVFile(InputStream inputStream) {
         this.inputStream = inputStream;
     }
 
-    public List<String[]> read(){
+    public List<String[]> read() {
+        
         List<String[]> resultList = new ArrayList<String[]>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        
         try {
             String csvLine;
             while ((csvLine = reader.readLine()) != null) {
@@ -38,7 +41,8 @@ public class CSVFile {
         return resultList;
     }
 
-    public void write(List<String[]> data, String fileName){
+    public void write(List<String[]> data, String fileName) {
+        
         try {
             FileWriter writer = new FileWriter(fileName);
 
@@ -52,7 +56,8 @@ public class CSVFile {
             writer.flush();
             writer.close();
 
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
@@ -65,4 +70,5 @@ public class CSVFile {
             }
         }
     }
+    
 }
