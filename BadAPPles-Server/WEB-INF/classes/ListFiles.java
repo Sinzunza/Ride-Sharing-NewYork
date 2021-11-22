@@ -26,7 +26,7 @@ public class ListFiles extends HttpServlet {
         // Creating a File object for directory
         File directoryPath = new File("webapps/BadAPPles/backUp-" + fileNum);
 
-        // List of all files in directories
+       // List of all files in directories
         String contents[] = directoryPath.list();
         String importf = String.join(",", contents);
 
