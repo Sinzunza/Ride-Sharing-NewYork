@@ -16,30 +16,28 @@ public class ActiveVehiclesOver1000Servlet extends HttpServlet {
         //parsing a CSV file into Scanner class constructor
         String line = "";
         String splitBy = ",";
-        try
-        {
+        try {
             //parsing a CSV file into BufferedReader class constructor
             BufferedReader br = new BufferedReader(new FileReader("webapps/BadAPPles/temp/uber-Jan-Feb-FOIL.csv"));
             int total = 0;
-            while ((line = br.readLine()) != null)   //returns a Boolean value
-            {
+            while ((line = br.readLine()) != null) {  //returns a Boolean value
+                
                 String[] column = line.split(splitBy);    // use comma as separator
                 PrintWriter out = response.getWriter();
-                if(!column[2].contains("active_vehicles")){ // skip first line
+                if (!column[2].contains("active_vehicles")) { // skip first line
                     int i=Integer.parseInt(column[2]); // string to int
-                    if(i > 1000){
+                    if (i > 1000) {
                         total += 1;
                     }
                 }
 
-                if((line = br.readLine()) == null){
+                if((line = br.readLine()) == null) {
                     out.println(total);
                 }
             }
 
         }
-        catch (IOException e)
-        {
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
