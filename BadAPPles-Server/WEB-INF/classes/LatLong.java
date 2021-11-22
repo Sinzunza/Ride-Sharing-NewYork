@@ -15,10 +15,10 @@ public class LatLong extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
-            throws ServletException, IOException {
-        //parsing a CSV file into Scanner class constructor
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+       // parsing a CSV file into Scanner class constructor
+        
         String line = "";
 
         PrintWriter out = response.getWriter();
@@ -29,17 +29,15 @@ public class LatLong extends HttpServlet {
         List<String[]> cachedResults = new ArrayList();
         File file = new File("webapps/BadAPPles/cache/LatLong.csv");
 
-        try
-        {
-            if (file.exists()){
+        try {
+            if (file.exists()) {
 
                 System.out.println("LatLong Cache exists.");
 
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 br.readLine();
 
-                while ((line = br.readLine()) != null)   //returns a Boolean value
-                {
+                while ((line = br.readLine()) != null)   //returns a Boolean value {
 
                     String[] column = line.split(",");
 
@@ -76,11 +74,11 @@ public class LatLong extends HttpServlet {
                 DataList data = new DataList(csvList);
 
                 file.createNewFile();
-                //parsing a CSV file into BufferedReader class constructor
+                
                 BufferedReader br = new BufferedReader(new FileReader("webapps/BadAPPles/backUp-3/uber-raw-data-apr14.csv"));
-                while ((line = br.readLine()) != null)   //returns a Boolean value
-                {
-                    String[] employee = line.split(",");    // use comma as separator
+                while ((line = br.readLine()) != null) {  // returns a Boolean value
+                    
+                    String[] employee = line.split(",");  // use comma as separator
 
                     String temp = employee[1].trim() + employee[2].trim(); // Lat + Long
 
@@ -129,16 +127,12 @@ public class LatLong extends HttpServlet {
                 out.println(result);
                 //write to file
 
-
-
                 }
 
-            }
-        catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-
-
         }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
+}
