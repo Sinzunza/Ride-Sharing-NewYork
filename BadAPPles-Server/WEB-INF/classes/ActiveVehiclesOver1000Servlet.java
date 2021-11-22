@@ -12,12 +12,11 @@ public class ActiveVehiclesOver1000Servlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        //parsing a CSV file into Scanner class constructor
+       
         String line = "";
         String splitBy = ",";
         try {
-            //parsing a CSV file into BufferedReader class constructor
+           //parsing a CSV file into BufferedReader class constructor
             BufferedReader br = new BufferedReader(new FileReader("webapps/BadAPPles/temp/uber-Jan-Feb-FOIL.csv"));
             int total = 0;
             while ((line = br.readLine()) != null) {  //returns a Boolean value
