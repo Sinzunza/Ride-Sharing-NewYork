@@ -17,18 +17,17 @@ public class RidesOnDate extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-
-// read file into dataList
+       // read file into dataList
         File file = new File("webapps/BadAPPles/temp/Uber-Jan-Feb-FOIL.csv");
         InputStream inputStream = new FileInputStream(file);
         CSVFile csvFile = new CSVFile(inputStream);
         List<String[]> csvList = csvFile.read();
         DataList data = new DataList(csvList);
 
-// search dataList
+        // search dataList
         long result = data.search(1, "1/1/2015");
 
-// send result
+        // send result
         out.println(result);
     }
 
