@@ -26,17 +26,17 @@ public class FirstClassServlet extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-// read file into dataList
+    // read file into dataList
         File file = new File("webapps/BadAPPles/temp/other-Firstclass_B01536.csv");
         InputStream inputStream = new FileInputStream(file);
         CSVFile csvFile = new CSVFile(inputStream);
         List<String[]> csvList = csvFile.read();
 
-// search dataList
+    // search dataList
         DataList data = new DataList(csvList);
         long result = data.search(0, "7/1/2014");
 
-// send result
+    // send result
         out.println(result);
     }
 
