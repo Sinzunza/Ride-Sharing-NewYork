@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.List;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,11 +20,11 @@ public class SendRow extends HttpServlet {
         PrintWriter out = response.getWriter();
         InputStream reader = request.getInputStream();
 
-        // parameters from client
+       // parameters from client
         String file = request.getParameter("param1");
         String row = request.getParameter("param2");
 
-        // String to int
+       // String to int
         int fileNum = Integer.parseInt(file);
         int rowNum = Integer.parseInt(row);
 
@@ -41,8 +40,8 @@ public class SendRow extends HttpServlet {
         List<String[]> csvList = csvFile.read();
 
         String result = "";
-        for(int i = 0; i < csvList.get(rowNum).length; i++) {
-            if (i != (csvList.get(rowNum).length - 1)){
+        for (int i = 0; i < csvList.get(rowNum).length; i++) {
+            if (i != (csvList.get(rowNum).length - 1)) {
                 result += " || " + csvList.get(rowNum)[i].trim();
             }
             else {
