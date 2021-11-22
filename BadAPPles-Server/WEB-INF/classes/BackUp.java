@@ -43,38 +43,7 @@ public class BackUp extends HttpServlet {
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss");
         String timeStamp = now.format(myFormat);
 
-        Path path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"),
-                        Paths.get("webapps/BadAPPles/backUp-" + fileNum + "/" + file + timeStamp + ".csv"));
-
-/*
-        //store temp file into backup folder
-        switch (fileNum){
-            case 0:
-                Path path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"),
-                        Paths.get("webapps/BadAPPles/backUp-0/" + file + timeStamp + ".csv"));
-                break;
-            case 1:
-                path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"),
-                        Paths.get("webapps/BadAPPles/backUp-1/" + file + timeStamp + ".csv"));
-                break;
-            case 2:
-                path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"),
-                        Paths.get("webapps/BadAPPles/backUp-2/" + file + timeStamp + ".csv"));
-                break;
-            case 3:
-                path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"),
-                        Paths.get("webapps/BadAPPles/backUp-3/" + file + timeStamp + ".csv"));
-                break;
-            case 4:
-                path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"),
-                        Paths.get("webapps/BadAPPles/backUp-4/" + file + timeStamp + ".csv"));
-                break;
-            case 5:
-                path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"),
-                        Paths.get("webapps/BadAPPles/backUp-5/" + file + timeStamp + ".csv"));
-                break;
-        }
-        */
+        Path path = Files.copy(Paths.get("webapps/BadApples/temp/" + file + ".csv"), Paths.get("webapps/BadAPPles/backUp-" + fileNum + "/" + file + timeStamp + ".csv"));
 
     }
 }
