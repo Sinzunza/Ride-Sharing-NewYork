@@ -123,9 +123,9 @@ public class LatLong extends HttpServlet {
                 String result = parser.toJSON(stringArray);
 
                 inputStream.close();
-
+                
+                // write to file
                 out.println(result);
-                //write to file
 
                 }
 
