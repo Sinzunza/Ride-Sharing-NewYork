@@ -19,25 +19,25 @@ public class CreateTempServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 
-        // reader for user input
+       // reader for user input
         InputStream reader = request.getInputStream();
 
-        // files
+       // files
         String[] fileNames = {"Uber-Jan-Feb-FOIL", "other-Dial7_B00887", "other-Firstclass_B01536",
                               "uber-raw-data-apr14","other-Federal_02216", "other-Highclass_B01717"};
 
-        // parameters from client
+       // parameters from client
         String fileParam = request.getParameter("param1");
         String backUpFile = request.getParameter("param2");
 
-        // convert necessary parameters to ints
+       // convert necessary parameters to ints
         int fileNum = (int) Double.parseDouble(fileParam);
 
         String file;
         CleanDir clean = new CleanDir();
         File oldFile;
         
-        //store backUp file into temp folder
+       // store backUp file into temp folder
         switch (fileNum) {
             case 0:
                 file = fileNames[fileNum] + ".csv";
@@ -70,15 +70,15 @@ public class CreateTempServlet extends HttpServlet{
                 Files.copy(Paths.get("webapps/BadAPPles/backUp-5/" + backUpFile), Paths.get("webapps/BadAPPles/temp/" + file));
                 break;
             case 100:
-                // clean cache of any old files
+               // clean cache of any old files
                 File dirCache = new File("webapps/BadAPPles/cache");
                 clean.cleanDirectory(dirCache);
 
-                // clean temp of any old files
+               // clean temp of any old files
                 File dirTemp = new File("webapps/BadAPPles/temp");
                 clean.cleanDirectory(dirTemp);
 
-                // move all original files into temp folder
+               // move all original files into temp folder
                 file = fileNames[0] + ".csv";
                 Files.copy(Paths.get("webapps/BadAPPles/backUp-0/" + file), Paths.get("webapps/BadAPPles/temp/" + file));
 
