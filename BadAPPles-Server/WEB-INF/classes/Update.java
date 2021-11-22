@@ -23,13 +23,13 @@ public class Update extends HttpServlet {
         String[] fileNames = {"Uber-Jan-Feb-FOIL", "other-Dial7_B00887", "other-Firstclass_B01536",
                               "uber-raw-data-apr14","other-Federal_02216", "other-Highclass_B01717"};
 
-         // parameters from client
+       // parameters from client
         String fileParam = request.getParameter("param1");
         String rowParam = request.getParameter("param2");
         String columnParam = request.getParameter("param3");
         String valueParam = request.getParameter("param4");
 
-        // convert necessary parameters to ints
+       // convert necessary parameters to ints
         int fileNum = Integer.parseInt(fileParam);
         int row = Integer.parseInt(rowParam);
         int column = Integer.parseInt(columnParam);
@@ -37,7 +37,7 @@ public class Update extends HttpServlet {
 
         String file = fileNames[fileNum] + ".csv";
 
-        // create file and load into dataList
+       // create file and load into dataList
         File newFile = new File("webapps/BadAPPles/temp/" + file);
         InputStream inputStream = new FileInputStream(newFile);
         CSVFile csvFile = new CSVFile(inputStream);
@@ -47,9 +47,9 @@ public class Update extends HttpServlet {
         // get old value for caching purposes. Need to obtain before data is updated
         String oldVal = data.getData().get(row)[column].trim();
 
-        // needed for apr and federal file cache
+       // needed for apr and federal file cache
         String[] oldRow = new String[data.getData().get(row).length];
-        for (int i = 0; i < oldRow.length; i++){
+        for (int i = 0; i < oldRow.length; i++) {
             oldRow[i] = data.getData().get(row)[i];
         }
 
@@ -64,8 +64,8 @@ public class Update extends HttpServlet {
         csvFile.write(data.getData(), "webapps/BadAPPles/temp/" + file);
 
 
-        // update cache if it exists
-        if (fileNum == 1) { // Dial
+       // update cache if it exists
+        if (fileNum == 1) {  // Dial
             File Top3Hours = new File("webapps/BadAPPles/cache/Top3Hours.csv");
             File Top3Streets = new File("webapps/BadAPPles/cache/Top3Streets.csv");
             File TopStreetsTime = new File("webapps/BadAPPles/cache/TopStreetsTime.csv");
@@ -89,7 +89,7 @@ public class Update extends HttpServlet {
                 int[] columns = {0};
                 updateCache(Top3Streets, "webapps/BadAPPles/cache/Top3Streets.csv", oldValues, newValues, columns);
             }
-            if (TopStreetsTime.exists() && (column == 1 || column == 5)){ // if file exists and either street or time columns were updated
+            if (TopStreetsTime.exists() && (column == 1 || column == 5)){  // if file exists and either street or time columns were updated
 
                 if (column == 1) { //time updated
                     String streetName = data.getData().get(row)[5].trim();
@@ -122,7 +122,7 @@ public class Update extends HttpServlet {
                     updateCache(TopStreetsTime, "webapps/BadAPPles/cache/TopStreetsTime.csv", oldValues, newValues, columns);
 
                 }
-                else { // streetName updated
+                else {  // streetName updated
                     int time = Integer.parseInt(data.getData().get(row)[1].split(":")[0]);
                     String oldStreet = oldVal;
 
@@ -146,11 +146,11 @@ public class Update extends HttpServlet {
                 }
             }
         }
-        else if (fileNum == 2 || fileNum == 5) { // FirstClass or HighClass
+        else if (fileNum == 2 || fileNum == 5) {  // FirstClass or HighClass
             File TopVehicleAM = new File("webapps/BadAPPles/cache/TopVehicleAM.csv");
             File TopVehiclePM = new File("webapps/BadAPPles/cache/TopVehiclePM.csv");
 
-            if (TopVehicleAM.exists() && (oldVal.contains("AM") || newVal.contains("AM")) && column == 1) { // if file exists and time column was updated
+            if (TopVehicleAM.exists() && (oldVal.contains("AM") || newVal.contains("AM")) && column == 1) {  // if file exists and time column was updated
 
                 String oldTime = oldVal.split(":")[0].trim();
                 String newTime = newVal.split(":")[0].trim();
@@ -270,10 +270,12 @@ public class Update extends HttpServlet {
         reader.close();
 
     }
-
+    
+   ///////// helper functions
+    
     void updateCache(File file, String fileName, String[] oldValues, String[] newValues, int[] columns) {
         try {
-        // create file and load into dataList
+           // create file and load into dataList
             InputStream inputStream = new FileInputStream(file);
             CSVFile csvFile = new CSVFile(inputStream);
             List<String[]> csvList = csvFile.read();
@@ -322,7 +324,7 @@ public class Update extends HttpServlet {
                 data.getData().add(newRow);
             }
 
-            // write the dataList to the backup
+           // write the dataList to the backup
             csvFile.write(data.getData(), fileName);
 
             inputStream.close();
@@ -335,7 +337,7 @@ public class Update extends HttpServlet {
 
     void incrementCache(File file, String fileName, String[] values, int[] columns) {
         try {
-        // create file and load into dataList
+           // create file and load into dataList
             InputStream inputStream = new FileInputStream(file);
             CSVFile csvFile = new CSVFile(inputStream);
             List<String[]> csvList = csvFile.read();
@@ -382,7 +384,7 @@ public class Update extends HttpServlet {
 
     void decrementCache(File file, String fileName, String[] values, int[] columns) {
         try {
-        // create file and load into dataList
+           // create file and load into dataList
             InputStream inputStream = new FileInputStream(file);
             CSVFile csvFile = new CSVFile(inputStream);
             List<String[]> csvList = csvFile.read();
@@ -417,16 +419,6 @@ public class Update extends HttpServlet {
     
     }
 
-    
-
 }
 
 //  javac -Xlint DataList.java CSVFile.java JSONstring.java CleanDir.java -cp ../../../../lib/servlet-api.jar *.java
-
-
-// Changes
-// add trim to count and old value
-
-
-
-
