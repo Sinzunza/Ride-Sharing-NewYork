@@ -22,23 +22,23 @@ public class BackUp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // reader for user input
+       // reader for user input
         InputStream reader = request.getInputStream();
 
-        // files
+       // files
         String[] fileNames = {"Uber-Jan-Feb-FOIL", "other-Dial7_B00887", "other-Firstclass_B01536",
                               "uber-raw-data-apr14","other-Federal_02216", "other-Highclass_B01717"};
 
-         // parameters from client
+       // parameters from client
         String fileParam = request.getParameter("param1");
-
-        // convert necessary parameters to ints
+        
+       // convert necessary parameters to ints
         int fileNum = Integer.parseInt(fileParam);
 
-        //  get file
+       //  get file
         final String file = fileNames[fileNum];
 
-        // get time stamp
+       // get time stamp
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss");
         String timeStamp = now.format(myFormat);
