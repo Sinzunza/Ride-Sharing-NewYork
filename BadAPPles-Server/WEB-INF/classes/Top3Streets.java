@@ -22,15 +22,16 @@ public class Top3Streets extends HttpServlet {
 
         Map.Entry<String, Integer> maxEntry = null;
         Map<String, Integer> interval1 = new HashMap<String, Integer>();
-        File file = new File("webapps/BadAPPles/cache/Top3Streets.csv"); //cahnge path
+        File file = new File("webapps/BadAPPles/cache/Top3Streets.csv");  // change path
         List<String[]> cachedResults = new ArrayList<String[]>();
-        //FileWriter myWriter = new FileWriter(file); //
+
         String line = "";
-         if (file.exists()){
+        
+        if (file.exists()){
 
             BufferedReader br = new BufferedReader(new FileReader(file));
-            //String line = null;
             br.readLine();
+            
             while ((line = br.readLine()) != null) {
                 String[] col = line.split(",");
                 int i=Integer.parseInt(col[1].trim());
@@ -47,10 +48,7 @@ public class Top3Streets extends HttpServlet {
             int maxValueIntMap3 = (Collections.max(interval1.values()));
             interval1.replace(key1.get(2), 1);
 
-
-
             String[] stringArray = new String[3];
-
 
             stringArray[0] = key1.get(0) + ": " + String.valueOf(maxValueIntMap1);
             stringArray[1] = key1.get(1) + ": " + String.valueOf(maxValueIntMap2);
@@ -60,7 +58,6 @@ public class Top3Streets extends HttpServlet {
             String result = parser.toJSON(stringArray);
             out.println(result);
 
-
         } 
         else {
             File file1 = new File("webapps/BadAPPles/temp/other-Dial7_B00887.csv");
@@ -69,12 +66,9 @@ public class Top3Streets extends HttpServlet {
             List<String[]> csvList = csvFile.read();
             DataList data = new DataList(csvList);
 
-
             file.createNewFile();
-            // create file
+            
             BufferedReader br = new BufferedReader(new FileReader(file1));
-            //String line = null;
-
             while ((line = br.readLine()) != null) {
                 String[] col = line.split(",");
                 String street = col[5].trim();
@@ -96,9 +90,8 @@ public class Top3Streets extends HttpServlet {
                         interval1.put(street, 1);
 
                     }
-
-
-                } catch (ParseException e) {
+                }
+                catch (ParseException e) {
                     e.printStackTrace();
                 }
             }
@@ -111,6 +104,7 @@ public class Top3Streets extends HttpServlet {
                 String[] values = {temp, String.valueOf(pair.getValue())};
                 cachedResults.add(values);
             }
+            
             DataList dataCache = new DataList(cachedResults);
             csvFile.write(dataCache.getData(), "webapps/BadAPPles/cache/Top3Streets.csv");
 
@@ -135,7 +129,6 @@ public class Top3Streets extends HttpServlet {
             inputStream.close(); 
             
             out.println(result);
-
 
         }
     }
