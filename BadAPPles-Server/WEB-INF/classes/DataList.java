@@ -5,11 +5,11 @@ public class DataList {
 
     List<String[]> data;
 
-    public DataList(List<String[]> data){
+    public DataList(List<String[]> data) {
         this.data = data;
     }
 
-    public long search(int column, String search){
+    public long search(int column, String search) {
         long result = 0;
         for(int i = 0; i < data.size(); i++) {
             if(data.get(i)[column].equals(search) || data.get(i)[column].contains(search)){
@@ -19,7 +19,7 @@ public class DataList {
         return result;
     }
 
-    public void insert( String[] line ){
+    public void insert( String[] line ) {
         String[] newLine = new String[line.length - 1];
         for (int i = 0; i < line.length-1; i++){
             newLine[i] = line [i+1];
@@ -27,11 +27,11 @@ public class DataList {
         data.add(newLine);
     }
 
-    public void update(int row, int column, String value){
+    public void update(int row, int column, String value) {
         data.get(row)[column] = value;
     }
 
-    public void delete(int row){
+    public void delete(int row) {
         if(row < data.size()){
             data.remove(row);
         }
