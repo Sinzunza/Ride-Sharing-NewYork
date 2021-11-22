@@ -17,21 +17,21 @@ public class StreetServlet extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-// read file into dataList
+       // read file into dataList
         File file = new File("webapps/BadAPPles/temp/other-Dial7_B00887.csv");
         InputStream inputStream = new FileInputStream(file);
         CSVFile csvFile = new CSVFile(inputStream);
         List<String[]> csvList = csvFile.read();
         DataList data = new DataList(csvList);
 
-// search dataList
+       // search dataList
         long result = data.search(5, "PARK AVE");
 
-// send result
+       // send result
         out.println(result);
-
-        
+   
     }
+    
 }
 
 //  javac -Xlint DataList.java CSVFile.java CleanDir.java -cp ../../../../lib/servlet-api.jar *.java
