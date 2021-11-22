@@ -1,4 +1,5 @@
 import java.io.*;
+
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.*;
@@ -9,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-//# of requested vehicles at a certain time
+// # of requested vehicles at a certain time
 
 public class TopVehicleAM extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -21,6 +22,7 @@ public class TopVehicleAM extends HttpServlet {
     private static final String col_separator = " , ";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         PrintWriter out = response.getWriter();
 
         Map<String, Integer> vehicleType = new HashMap<String, Integer>();  //OVERALL FIRSTCLASS & HIGHCLASS
@@ -34,7 +36,8 @@ public class TopVehicleAM extends HttpServlet {
         File file = new File("webapps/BadAPPles/cache/TopVehicleAM.csv");
 
         try {
-            if(file.exists()){
+            if (file.exists()) {
+                
                 BufferedReader br = new BufferedReader(new FileReader("webapps/BadAPPles/cache/TopVehicleAM.csv"));
                 String line = null;
 
@@ -47,7 +50,7 @@ public class TopVehicleAM extends HttpServlet {
 
                     boolean notFirstLine = !col[0].equals("Time");
 
-                    //skip first line of csv
+                   //skip first line of csv
                     if(notFirstLine){
                         Integer cnt = Integer.parseInt(count);
                         vehicleType.put(vehicle, cnt);
@@ -62,15 +65,16 @@ public class TopVehicleAM extends HttpServlet {
                         if ((x < 6 || x == 12) && vehicle.contains("FirstClass")) {
                             if (firstClass1.containsKey(hour)) {
                                 firstClass1.replace(hour, firstClass1.get(hour) + 1);
-                            } else {
+                            } 
+                            else {
                                 firstClass1.put(hour, y);
                             }
                         }
-
                         else if (x < 12 && vehicle.contains("FirstClass")) {
                             if (firstClass2.containsKey(hour)) {
                                 firstClass2.replace(hour, firstClass2.get(hour) + 1);
-                            } else {
+                            } 
+                            else {
                                 firstClass2.put(hour, y);
                             }
                         }
@@ -78,7 +82,8 @@ public class TopVehicleAM extends HttpServlet {
                         else if ((x < 6 || x == 12) && vehicle.contains("HighClass")) {
                             if (highClass1.containsKey(hour)) {
                                 highClass1.replace(hour, highClass1.get(hour) + 1);
-                            } else {
+                            } 
+                            else {
                                 highClass1.put(hour, y);
                             }
                         }
@@ -86,7 +91,8 @@ public class TopVehicleAM extends HttpServlet {
                         else if (x < 12 && vehicle.contains("HighClass")) {
                             if (highClass2.containsKey(hour)) {
                                 highClass2.replace(hour, highClass2.get(hour) + 1);
-                            } else {
+                            } 
+                            else {
                                 highClass2.put(hour, y);
                             }
                         }
@@ -120,7 +126,6 @@ public class TopVehicleAM extends HttpServlet {
                 String result = parser.toJSON(stringArray);
                 out.println(result);
             }
-
             else {
                 BufferedReader br = new BufferedReader(new FileReader("webapps/BadAPPles/temp/other-Firstclass_B01536.csv"));
                 BufferedReader br2 = new BufferedReader(new FileReader("webapps/BadAPPles/temp/other-Highclass_B01717.csv"));
@@ -141,7 +146,8 @@ public class TopVehicleAM extends HttpServlet {
                         else if ((x < 6 || x == 12) && time.contains("AM")) {
                             if (firstClass1.containsKey(hour)) {
                                 firstClass1.replace(hour, firstClass1.get(hour) + 1);
-                            } else {
+                            } 
+                            else {
                                 firstClass1.put(hour, 1);
                             }
                         }
@@ -149,11 +155,13 @@ public class TopVehicleAM extends HttpServlet {
                         else if (x < 12 && time.contains("AM")) {
                             if (firstClass2.containsKey(hour)) {
                                 firstClass2.replace(hour, firstClass2.get(hour) + 1);
-                            } else {
+                            } 
+                            else {
                                 firstClass2.put(hour, 1);
                             }
                         }
-                    } catch (ParseException e) {
+                    } 
+                    catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
@@ -169,21 +177,26 @@ public class TopVehicleAM extends HttpServlet {
                     try {
                         int x = (int) nf.parse(hour).doubleValue();
 
-                        if (time.trim().isEmpty()) { }
+                        if (time.trim().isEmpty()) { 
+                        }
                         else if ((x < 6 || x == 12) && time.contains("AM")) {
                             if (highClass1.containsKey(hour)) {
                                 highClass1.replace(hour, highClass1.get(hour) + 1);
-                            } else {
+                            }
+                            else {
                                 highClass1.put(hour, 1);
                             }
-                        } else if (x < 12 && time.contains("AM")) {
+                        } 
+                        else if (x < 12 && time.contains("AM")) {
                             if (highClass2.containsKey(hour)) {
                                 highClass2.replace(hour, highClass2.get(hour) + 1);
-                            } else {
+                            } 
+                            else {
                                 highClass2.put(hour, 1);
                             }
                         }
-                    } catch (ParseException e) {
+                    } 
+                    catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
@@ -210,20 +223,20 @@ public class TopVehicleAM extends HttpServlet {
                 String result = parser.toJSON(stringArray);
                 out.println(result); //send to client initial
 
-                //write cache
+                // write cache
                 File myObj = new File("webapps/BadAPPles/cache/TopVehicleAM.csv");
 
                 if (myObj.createNewFile()){
                     FileWriter myWriter = new FileWriter("webapps/BadAPPles/cache/TopVehicleAM.csv");
                     myWriter.write("Time, Vehicle Type, Count\n"); //add time
 
-                    for (Map.Entry<String, Integer> entry : firstClass1.entrySet()) {                                       //0-6 AM
+                    for (Map.Entry<String, Integer> entry : firstClass1.entrySet()) {  //0-6 AM
                         myWriter.write(entry.getKey() + "," + "FirstClass" + "," + entry.getValue() + "\n");
                     }
                     for (Map.Entry<String, Integer> entry : highClass1.entrySet()) {
                         myWriter.write(entry.getKey() + "," + "HighClass" + "," + entry.getValue() + "\n");
                     }
-                    for (Map.Entry<String, Integer> entry : firstClass2.entrySet()) {                                       //7-12 AM
+                    for (Map.Entry<String, Integer> entry : firstClass2.entrySet()) {  // 7-12 AM
                         myWriter.write(entry.getKey() + "," + "FirstClass" + "," + entry.getValue() + "\n");
                     }
                     for (Map.Entry<String, Integer> entry : highClass2.entrySet()) {
