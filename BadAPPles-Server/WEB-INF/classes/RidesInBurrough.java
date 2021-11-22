@@ -17,17 +17,17 @@ public class RidesInBurrough extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-// read file into dataList
+       // read file into dataList
         File file = new File("webapps/BadAPPles/temp/other-Dial7_B00887.csv");
         InputStream inputStream = new FileInputStream(file);
         CSVFile csvFile = new CSVFile(inputStream);
         List<String[]> csvList = csvFile.read();
         DataList data = new DataList(csvList);
 
-// search dataList
+        // search dataList
         long result = data.search(3, "MANHATTAN");
 
-// send result
+        // send result
         out.println(result);
     }
 }
