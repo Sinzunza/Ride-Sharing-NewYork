@@ -29,18 +29,18 @@ public class Delete extends HttpServlet{
         String TopStreetsTimeCache = "webapps/BadAPPles/cache/TopStreetsTime.csv";
         String NumPeopleArrivedCache = "webapps/BadAPPles/cache/NumPeopleArrived.csv";
         
-        // parameters from client
+       // parameters from client
         String fileParam = request.getParameter("param1");
         String rowParam = request.getParameter("param2");
 
-        // convert necessary parameters to ints
+       // convert necessary parameters to ints
         int fileNum = Integer.parseInt(fileParam);
         int row = Integer.parseInt(rowParam);
 
-        // file name
+       // file name
         String file = fileNames[fileNum] + ".csv";
 
-        // create file and load into dataList
+       // create file and load into dataList
         File newFile = new File(pathToTemp + file);
         InputStream inputStream = new FileInputStream(newFile);
         CSVFile csvFile = new CSVFile(inputStream);
@@ -52,14 +52,14 @@ public class Delete extends HttpServlet{
             line[i] = data.getData().get(row)[i];
         }
 
-        // delete old file
+       // delete old file
         CleanDir clean = new CleanDir();
         clean.removeFile(new File(pathToTemp + file));
 
-        // write the dataList to the backup
+       // write the dataList to the backup
         csvFile.write(data.getData(), pathToTemp + file);
 
-        // update cache if it exists
+       // update cache if it exists
         if (fileNum == 1) { // Dial7
             File Top3Hours = new File(Top3HoursCache);
             File Top3Streets = new File(Top3StreetsCache);
@@ -109,7 +109,7 @@ public class Delete extends HttpServlet{
                 else {
                     vehicleClass = "HighClass";
                 }
-                // decrement old value
+               // decrement old value
                 String[] values = {oldTime, vehicleClass}  ;
                 int[] columns = {0, 1};
                 decrementCache(TopVehicleAM, TopVehicleAMCache, values, columns);
@@ -122,7 +122,7 @@ public class Delete extends HttpServlet{
                 else {
                     vehicleClass = "HighClass";
                 }
-                // decrement old value
+               // decrement old value
                 String[] values = {oldTime, vehicleClass};
                 int[] columns = {0, 1};
                 decrementCache(TopVehiclePM, TopVehiclePMCache, values, columns);
@@ -152,11 +152,11 @@ public class Delete extends HttpServlet{
         
     }
 
-    ///////////// Helper Functions
+   ///////////// Helper Functions
 
     void decrementCache(File file, String fileName, String[] values, int[] columns) {
         try {
-            // create file and load into dataList
+           // create file and load into dataList
             InputStream inputStream = new FileInputStream(file);
             CSVFile csvFile = new CSVFile(inputStream);
             List<String[]> csvList = csvFile.read();
@@ -178,7 +178,7 @@ public class Delete extends HttpServlet{
                     break;
                 }
             }
-            // write the dataList to the backup
+           // write the dataList to the backup
             csvFile.write(data.getData(), fileName);
             inputStream.close();
         }
