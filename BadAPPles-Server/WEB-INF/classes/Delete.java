@@ -48,7 +48,7 @@ public class Delete extends HttpServlet{
         DataList data = new DataList(csvList);
 
         String[] line = new String[data.getData().get(row).length];
-        for (int i = 0; i < line.length; i++){
+        for (int i = 0; i < line.length; i++) {
             line[i] = data.getData().get(row)[i];
         }
 
@@ -146,15 +146,17 @@ public class Delete extends HttpServlet{
                 decrementCache(LatLong, LatLongCache, oldValues, columns);
             }
         }
+        
         reader.close();
         inputStream.close();
+        
     }
 
-    //////////////////////////////////////////////////////////////////////////////////
+    ///////////// Helper Functions
 
     void decrementCache(File file, String fileName, String[] values, int[] columns) {
         try {
-        // create file and load into dataList
+            // create file and load into dataList
             InputStream inputStream = new FileInputStream(file);
             CSVFile csvFile = new CSVFile(inputStream);
             List<String[]> csvList = csvFile.read();
@@ -184,6 +186,7 @@ public class Delete extends HttpServlet{
             throw new RuntimeException("Error in reading CSV file: " + ex);
         }
     }
+    
 }
 
 //  javac -Xlint DataList.java CSVFile.java JSONstring.java CleanDir.java -cp ../../../../lib/servlet-api.jar *.java
